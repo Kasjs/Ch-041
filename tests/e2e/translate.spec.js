@@ -6,17 +6,17 @@ describe('check language translation', function () {
 		enText = 'All of your favourites news feeds in one place';
 	it('should click on language button and change language', function () {
 		
-		browser.get(localhost ? localhost : host);
+		browser.get(host);
 		element(by.css('.select-lang-btn')).click();
 		element(by.css('.ua')).click();
 		expect(element(by.css('.test-lang')).getText()).toEqual(uaText);
 		
-		browser.get(localhost ? localhost : host);
+		browser.get(host);
 		element(by.css('.select-lang-btn')).click();
 		element(by.css('.en')).click();
 		expect(element(by.css('.test-lang')).getText()).toEqual(enText);
 		
-		browser.get(localhost ? localhost : host);
+		browser.get(host);
 		element(by.css('.select-lang-btn')).click();
 		element(by.css('.pl')).click();
 		expect(element(by.css('.test-lang')).getText()).toEqual(plText);

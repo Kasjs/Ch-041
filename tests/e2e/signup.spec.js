@@ -1,11 +1,11 @@
 describe('Sign up a new user account', function () {
 	var	userPassword = '123456789aA!',
-		userEmail = 'testemail0000@test.com',
+		userEmail = 'testemail00000@test.com',
 		host = 'http://rss-reader.azurewebsites.net/#/register',
 		localhost = 'http://localhost:8080/#/register'
 
 	it('should go to register page and register new user account', function () {
-		browser.get(localhost ? localhost : host);
+		browser.get(host);
 		element(by.model('user.email')).sendKeys(userEmail);
 		element(by.model('user.password')).sendKeys(userPassword);
 		element(by.model('user.repPassword')).sendKeys(userPassword);
@@ -16,7 +16,7 @@ describe('Sign up a new user account', function () {
 	});
 
 	it('should approve email and return link from email', function () {
-		browser.get(localhost ? localhost : host);
+		browser.get(host);
 		element(by.model('user.email')).sendKeys(userEmail);
 		element(by.model('user.password')).sendKeys(userPassword);
 		element(by.model('user.repPassword')).sendKeys(userPassword);

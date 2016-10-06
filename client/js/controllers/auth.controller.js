@@ -11,23 +11,6 @@ angular.module('rssreader').config(['$validatorProvider', function($validatorPro
 	controller('AuthController', ['$scope', '$state', 'authService', '$window', 'dashboardService', '$auth', 'transfer', 'jwtHelper', 'toasterService', '$timeout', 
 		function ($scope, $state, authService, $window, dashboardService, $auth, transfer, jwtHelper, toasterService, $timeout) {
 		
-		$scope.user = {
-			verifyEmail : transfer.getString(),
-			counter : 0
-		};
-		transfer.setString("");
-		$scope.setEmail = function () {
-			return transfer.getEmail().verifEmail;
-		}
-		$scope.password = {
-			token : transfer.getObj(),
-			email : transfer.getEmail()
-		};
-		$scope.confirm_email = {};
-		$scope.session;
-		$scope.test = 5;
-
-
         var ERRORS = {
             field_required: 'This field is required',
             email_example: 'Please, use example: jacksparrow@gmail.com',
@@ -36,6 +19,20 @@ angular.module('rssreader').config(['$validatorProvider', function($validatorPro
             max_20symbl: 'Please, enter no more then 40 characters',
             reg_exp: 'Password must contain (a-z,A-Z,0-9,!@#)'
         }
+        $scope.user = {
+            verifyEmail : transfer.getString(),
+            counter : 0
+        };
+        transfer.setString("");
+        $scope.setEmail = function () {
+            return transfer.getEmail().verifEmail;
+        }
+        $scope.password = {
+            token : transfer.getObj(),
+            email : transfer.getEmail()
+        };
+        $scope.confirm_email = {};
+        $scope.session;
 
         $scope.register = function (form) {
             if (form.validate()) {
